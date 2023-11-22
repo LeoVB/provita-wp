@@ -1,5 +1,16 @@
-<footer >
 
+
+<?php
+/**
+ * The template for displaying the footer
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package provitapet Theme
+ */
+
+?>
+<footer >
 	<section id="footer-section">
 		<div class="container mx-auto w-50">
 			<div class="row">
@@ -34,15 +45,7 @@
 			</div>
 		</div>
 	</section>
-
-
-
 </footer>
-
-
-<?php
-		wp_footer();
-	?>
-    
+<?php wp_footer(); ?>
 </body>
-</html> 
+</html>
