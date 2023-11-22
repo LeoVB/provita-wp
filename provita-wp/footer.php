@@ -1,13 +1,14 @@
-<footer class="footer text-center py-2 theme-bg-dark">
-
-		<p class="copyright"><a href="https://youtube.com/FollowAndrew">FollowAndrew</a></p>
-
-	</footer>
-</div>
-
 <?php
-		wp_footer();
-	?>
-    
+/**
+ * The template for displaying the footer
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package provitapet Theme
+ */
+
+?>
+<footer></footer>
+<?php wp_footer(); ?>
 </body>
-</html> 
+</html>
