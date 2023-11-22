@@ -7,7 +7,7 @@
 
 /* Para pantallas pequeñas y medianas (599px o menos) */
 @media screen and (max-width: 999px) {
-    .header img {
+    .front-page img {
         position: absolute;
         left: 45%;
         top: 0;
@@ -16,7 +16,19 @@
 }
 
 
-.header {
+a {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.header{
+    display: flex;
+    justify-content:space-between;
+}
+
+
+.front-page {
     background-repeat: no-repeat;
     background-size: cover;
     background-repeat: no-repeat;
@@ -25,7 +37,7 @@
     height: 250px;
 }
 
-.header::before {
+.front-page::before {
     content: "";
     position: absolute;
     top: 0;
@@ -36,26 +48,33 @@
     z-index: 0;
 }
 
-.header .nav-item {
+.front-page .nav-item {
     font-weight: bold
 }
 
-.header .nav-item.active a {
+.front-page .nav-item.active a {
     color: rgba(0, 0, 0, 0.5)
 }
 
-.header .nav-item.active a:hover {
+.front-page .nav-item.active a:hover {
     text-decoration: none
 }
 
-.header .nav-item a {
+.front-page .nav-item a {
     color: rgba(255, 255, 255, 0.8)
 }
 
-.header .nav-item a:hover {
+.front-page .nav-item a:hover {
     text-decoration: underline;
     color: rgba(0, 0, 0, 0.6)
 }
+
+.front-page .site-title {
+    color: var(--white);
+    font-size: 1.2em;
+    display: block;
+}
+
 
 .content {
     position: relative;
@@ -67,17 +86,7 @@
     width: 78px;
 }
 
-.header .site-title {
-    color: var(--white);
-    font-size: 1.2em;
-    display: block;
-}
 
-a {
-    color: #ffffff;
-    text-decoration: none;
-    background-color: transparent;
-}
 
 .menu li {
     color: #ffffff;
@@ -94,12 +103,12 @@ a {
 }
 
 
-.header-banner {
+.front-page-banner {
     display: flex;
     background-color: #ffffff;
 }
 
-.header-banner::before {
+.front-page-banner::before {
     content: "";
     position: absolute;
     top: 0;
@@ -120,7 +129,7 @@ a {
     width: 150px;
     padding: 9px 5px;
     justify-content: center;
-
+    color: #ffffff;
 }
 
 .leer-mas-btn h5 {
@@ -149,17 +158,33 @@ a {
     color: white;
 }
 
+
+#categories{
+    color: #2F2F6F;
+}
+
+#footer-section{
+    background-color: #1b1b5e;
+}
+
 .openPopUp {
     transform: translateX(0px) !important;
 }
 
 
 
-.popup-btn {
+.menu-btn{
     text-decoration: none;
+    background:none;
+    border: none;
+    outline: none !important;
 }
 
-.popup-btn span {
+/* .header .menu-btn:focus-visible{
+    outline: none;
+} */
+
+.menu-btn span {
     text-decoration: none;
 }
 
@@ -171,7 +196,7 @@ a {
 
 .category-wrapper {
     height: 185px;
-    width: 190px;
+    width: 165px;
     position: relative;
     background-size: cover;
     background-position: center;
@@ -179,6 +204,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     flex-direction: column;
     padding: 10px 10px;
     margin-bottom: 15px;
@@ -199,6 +225,33 @@ a {
 
 .category-content {
     position: relative;
-    border: solid 1px white;
     padding: 27% 0px;
+}
+
+.category-wrapper::after{
+    content: "";
+    position: absolute;
+    top: 8%;
+    left: 7%;
+    width: 86%;
+    height: 85%;
+    border: solid 0.1px #ffffff7a;
+    z-index: 0;
+}
+
+.footer-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
+.info-footer-wrapper{
+    display: flex;
+    
+}
+
+.footer-icon{
+    color: rgb(183, 214, 43);
 }

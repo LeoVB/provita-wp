@@ -14,7 +14,7 @@ add_action('after_setup_theme','Provita_theme_support');
 
 function Provita_menus(){
     $locations = array(
-        'primary' => "Desktop primary left sidebar",
+        'primary' => "Header menu",
         'footer' => "Footer Menu Items"
     );
 
