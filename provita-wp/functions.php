@@ -106,16 +106,20 @@ add_action( 'widgets_init', 'provitapet_widgets_init' );
 
 function Provita_menus(){
     $locations = array(
-        'primary' => "Header menu",
+        'primary' => "Desktop primary left sidebar",
         'footer' => "Footer Menu Items"
     );
+
+    register_nav_menus( $locations );
 }
+
 /**
  * Enqueue scripts and styles.
  */
 
 function provitapet_scripts() {
-	wp_enqueue_style( 'style', get_stylesheet_uri() );
+	//wp_enqueue_style( 'style', get_stylesheet_uri() );
+    wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/style.css', array(), __VERSION__ ); 
     wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array(), __VERSION__ );
 	wp_enqueue_style( 'load-fa', 'https://use.fontawesome.com/releases/v5.3.1/css/all.css' );
 	wp_enqueue_style( 'styles', get_template_directory_uri() . '/assets/css/styles.css', array(), __VERSION__ );
@@ -130,14 +134,31 @@ function provitapet_scripts() {
 
 function scm_ajax_enqueue_scripts(){	
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array(), __VERSION__, true );
-	wp_enqueue_script( 'jquery', get_template_directory_uri() . '/assets/js/jquery-3.6.0.min.js', array(), __VERSION__, true );
+	wp_enqueue_script( 'Provita-Jquery', 'https://code.jquery.com/jquery-3.4.1.slim.min.js', array(), '3.4.1', true );
+	//wp_enqueue_script( 'jquery', get_template_directory_uri() . '/assets/js/jquery-3.6.0.min.js', array(), __VERSION__, true );
 	wp_enqueue_script( 'owl', get_template_directory_uri() . '/assets/js/owl.carousel.min.js', array(), __VERSION__, true );
 	wp_enqueue_script( 'App', get_template_directory_uri() . '/assets/js/App.js', array('jquery'), __VERSION__, true );
+	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), __VERSION__, true );
+	wp_enqueue_script( 'Map', get_template_directory_uri() . '/assets/js/map.js', array('jquery'), __VERSION__, true );
 }
+
+
+
+function cargar_mapbox_script_estilos() {
+    // Registrar el script de Mapbox
+    wp_enqueue_script('mapbox-gl-js', 'https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js', array(), null, true);
+
+    // Registrar el estilo de Mapbox
+    wp_enqueue_style('mapbox-gl-css', 'https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css', array(), null);
+}
+
+// Agregar el hook para cargar los scripts y estilos
+add_action('wp_enqueue_scripts', 'cargar_mapbox_script_estilos');
 
 add_action( 'wp_enqueue_scripts', 'provitapet_scripts' );
 add_action( 'wp_enqueue_scripts', 'scm_ajax_enqueue_scripts' );
 add_action( 'init', 'Provita_menus' );
+add_filter( 'show_admin_bar', '__return_false' );
 
 // Desactivar Gutenberg y utilizar el editor clásico
 add_filter('use_block_editor_for_post', '__return_false', 10);
