@@ -85,10 +85,12 @@ foreach ($stores as $key => $value) {
                ?>
                <div class="col-3 category-wrapper"
                   style="background-image: url(<?php echo esc_url($catgegory_background); ?>)">
-                  <div class="category-content">
-                     <h5>
-                        <?php echo esc_html($category->name); ?>
-                     </h5>
+                  <div class="son">
+                     <div class="category-content">
+                        <h5>
+                           <?php echo esc_html($category->name); ?>
+                        </h5>
+                     </div>
                   </div>
                </div>
             <?php endforeach; endif; ?>
@@ -101,10 +103,12 @@ foreach ($stores as $key => $value) {
                ?>
                <div class="col-3 category-wrapper"
                   style="background-image: url(<?php echo esc_url($catgegory_background); ?>)">
-                  <div class="category-content">
-                     <h5>
-                        <?php echo esc_html($category->name); ?>
-                     </h5>
+                  <div class="son">
+                     <div class="category-content">
+                        <h5>
+                           <?php echo esc_html($category->name); ?>
+                        </h5>
+                     </div>
                   </div>
                </div>
             <?php endforeach; endif; ?>
@@ -114,126 +118,133 @@ foreach ($stores as $key => $value) {
 
 </section>
 
+<style>
+   .mapboxgl-marker {
+      height: 50px;
+      width: 50px;
+      display: block;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+   }
 
-<section id="map-front">
-   <style>
-      .mapboxgl-marker {
-         height: 50px;
-         width: 50px;
-         display: block;
-         background-repeat: no-repeat;
-         background-position: center;
-         background-size: contain;
-      }
+   .mapboxgl-popup-content .info-tabs-center a img {
+      max-width: 40px;
+   }
 
-      .mapboxgl-popup-content .info-tabs-center a img {
-         max-width: 40px;
-      }
+   .mapboxgl-popup-content {
+      width: 350px;
+      -webkit-box-shadow: 0px 6px 49px -17px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 0px 6px 49px -17px rgba(0, 0, 0, 0.75);
+      box-shadow: 0px 6px 49px -17px rgba(0, 0, 0, 0.75);
+   }
 
-      .mapboxgl-popup-content {
-         width: 350px;
-         -webkit-box-shadow: 0px 6px 49px -17px rgba(0, 0, 0, 0.75);
-         -moz-box-shadow: 0px 6px 49px -17px rgba(0, 0, 0, 0.75);
-         box-shadow: 0px 6px 49px -17px rgba(0, 0, 0, 0.75);
-      }
-
-      .dealers-map {
-         margin: 0px auto !important;
-      }
-   </style>
+   .dealers-map {
+      margin: 0px auto !important;
+   }
+</style>
 
 
-   <!-- <div class="container" style="background-color: #c0c0c052;">
-      <div class="row">
-         <div class="col-12">
-            <div class="map-info-wrapper flex-column">
-               <h5 class="text-center mt-3">Oficionas centrales</h5>
-               <div class="info-box my-4 mx-3">
-                  <h5 class="mt-2">San José Centro</h5>
-                  <div class="row">
+<section>
+
+   <div class="container-fluid" style="background-color: #c0c0c052;">
+      <div class="office-wrapper d-lg-none">
+         <div class="row">
+            <div class="col-12">
+               <h3 class="text-center mt-3" style="color:#2F2F6F;">Oficionas centrales</h3>
+            </div>
+         </div>
+
+         <div class="row justify-content-center">
+            <!-- pantalla telefonos -->
+            <div class="info-box mb-4 mt-2 mx-3">
+               <h4 class="my-3 text-center ">San José Centro</h4>
+               <div class="row">
+                  <div class="col-3 col-md-5 text-right ">
                      <i class="fas fa-phone footer-icon mx-2"></i>
+                  </div>
+                  <div class="col">
                      <p>787-970-1155</p>
                   </div>
-                  <div class="row">
+               </div>
+
+               <div class="row">
+                  <div class="col-3 col-md-5 text-right ">
                      <i class="far fa-envelope footer-icon mx-2"></i>
+                  </div>
+                  <div class="col">
                      <p>paupei@8agroup.com</p>
                   </div>
-                  <div class="row">
-                     <i class="fas fa-map-marker-alt footer-icon mx-2"></i>
-                     <p>Puerto Rico</p>
-                  </div>
-                  <div class="row">
+               </div>
+
+               <div class="row">
+                  <div class="col-3 col-md-5 text-right ">
                      <i class="far fa-clock footer-icon mx-2"></i>
+                  </div>
+                  <div class="col">
                      <p>8:00 am - 8:00 pm</p>
                   </div>
+               </div>
+
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div id="map-dealers" class="dealers-map col-12 col-lg-8" style="width: 100%;margin: auto;">
+            <div class="scrolldown" style="
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 50px;">
+            </div>
+         </div>
+         <div class="office-wrapper d-none col-lg-4 d-lg-block">
+            <div class="row">
+               <div class="col-12">
+                  <h3 class="text-center mt-3" style="color:#2F2F6F;">Oficionas centrales</h3>
+               </div>
+            </div>
+
+            <div class="row justify-content-center">
+               <!-- pantalla telefonos -->
+               <div class="info-box mb-4 mt-2 mx-3">
+                  <h4 class="my-3 text-center ">San José Centro</h4>
+                  <div class="row">
+                     <div class="col-3 col-md-5 text-right ">
+                        <i class="fas fa-phone footer-icon mx-2"></i>
+                     </div>
+                     <div class="col">
+                        <p>787-970-1155</p>
+                     </div>
+                  </div>
+
+                  <div class="row">
+                     <div class="col-3 col-md-5 text-right ">
+                        <i class="far fa-envelope footer-icon mx-2"></i>
+                     </div>
+                     <div class="col">
+                        <p>paupei@8agroup.com</p>
+                     </div>
+                  </div>
+
+                  <div class="row">
+                     <div class="col-3 col-md-5 text-right ">
+                        <i class="far fa-clock footer-icon mx-2"></i>
+                     </div>
+                     <div class="col">
+                        <p>8:00 am - 8:00 pm</p>
+                     </div>
+                  </div>
+
                </div>
             </div>
          </div>
       </div>
    </div>
- -->
 
-   <div class="container-fluid mx-auto footer-wrapper" style="background-color: #c0c0c052;">
-      <div class="row">
-         <div class="col-12">
-            <h3 class="text-center mt-3" style="color:#2F2F6F;">Oficionas centrales</h3>
-         </div>
-      </div>
-
-
-      <!-- pantalla telefonos -->
-      <div class="info-box my-4 mx-3">
-         <h4 class="my-3 text-center ">San José Centro</h4>
-         <div class="row">
-            <div class="col-3 col-md-5 text-right ">
-               <i class="fas fa-phone footer-icon mx-2"></i>
-            </div>
-            <div class="col">
-               <p>787-970-1155</p>
-            </div>
-         </div>
-
-         <div class="row">
-            <div class="col-3 col-md-5 text-right ">
-               <i class="far fa-envelope footer-icon mx-2"></i>
-            </div>
-            <div class="col">
-               <p>paupei@8agroup.com</p>
-            </div>
-         </div>
-
-         <div class="row">
-            <div class="col-3 col-md-5 text-right ">
-               <i class="far fa-clock footer-icon mx-2"></i>
-            </div>
-            <div class="col">
-               <p>8:00 am - 8:00 pm</p>
-            </div>
-         </div>
-
-      </div>
-
-
-
-   </div>
-
-
-   <div id="map-dealers" class="dealers-map" style="height: 500px;width: 100%;margin: auto;">
-
-
-
-      <div class="scrolldown" style="
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 50px;
-         ">
-         <div class="col-md-12 text-center dwnarrow">
-            <a class="scroll" target="footer"><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-         </div>
-      </div>
-   </div>
 </section>
+
+
 
 
 <script type="text/javascript">

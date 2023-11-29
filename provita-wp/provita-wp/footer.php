@@ -41,7 +41,7 @@
 
 
 		<!-- pantallas mobile -->
-		<div class="container mx-auto footer-wrapper">
+		<div class="container mx-auto footer-wrapper d-lg-none">
 			<div class="row">
 				<div class="col-2 col-md-1">
 					<i class="fas fa-phone footer-icon mx-2"></i>
@@ -69,12 +69,90 @@
 		</div>
 
 
+		<div class="container mx-auto footer-wrapper d-none d-lg-block">
+			<div class="row">
+				<div class="col-6">
+					<div class="row">
+						<div class="col-2 col-md-1">
+							<i class="fas fa-phone footer-icon mx-2"></i>
+						</div>
+						<div class="col">
+							<p>787-970-1155</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-2 col-md-1">
+							<i class="far fa-envelope footer-icon mx-2"></i>
+						</div>
+						<div class="col">
+							<p>paupei@8agroup.com</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-2 col-md-1">
+							<i class="fas fa-map-marker-alt footer-icon mx-2"></i>
+						</div>
+						<div class="col">
+							<p>Puerto Rico, 500 mts norte 230 oeste</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-6">
+					<h5 class="mb-4">Escríbanos</h5>
+					<form>
+						<div class="row">
+							<div class="flex-column ">
+								<!-- Columna con 3 inputs -->
+								<div class="custom-input mb-3">
+									<input type="text" class="form-control " id="nombre"
+										placeholder="Nombre" required>
+								</div>
+
+								<div class="custom-input mb-3">
+									<input type="email" class="form-control " id="email" placeholder="Email"
+										required>
+								</div>
+
+								<div class="custom-input mb-3">
+									<input type="text" class="form-control " id="asunto"
+										placeholder="Asunto" required>
+								</div>
+							</div>
+							<div class="flex-column ">
+								<!-- Columna con 1 input y 1 textarea -->
+
+								<div class="custom-input mb-3">
+									<input type="tel" class="form-control" id="telefono"
+										placeholder="Teléfono" required>
+								</div>
+								<div class="custom-input mb-3">
+									<textarea class="form-control " id="mensaje" placeholder="Mensaje"
+										rows="4" required></textarea>
+								</div>
+							</div>
+						</div>
+						<button class="btn btn-primary" type="submit">Enviar</button>
+					</form>
+				</div>
+			</div>
+
+
+
+
+
+
+		</div>
+
+
+
 
 		<div class="container-fluid">
 			<div class="row" style="background-color: #2F2F6F;">
 				<div class="col-12">
 					<div class="copyright mt-2 text-center ">
-						<p>© <?php echo date("Y") ?> ProVita Pet. All Rights Reserved.</p>
+						<p>©
+							<?php echo date("Y") ?> ProVita Pet. All Rights Reserved.
+						</p>
 					</div>
 				</div>
 			</div>
